@@ -13,36 +13,24 @@ const allJobs = (await getCollection("work")).sort(
 >
     {
         allJobs.map((job) => (
-            <div class="job-card">
-                <div>
-                    <a href={"/work/" + job.slug}>
-                        <span style="font-size: 1.5rem;">
-                            {job.data.companyName}
-                        </span>
-                    </a>
+            <a href={"/work/" + job.slug}>
+                <div class="job-card">
+                    <span style="font-size: 1.5rem;">
+                        {job.data.companyName}
+                    </span>
                     <span>{job.data.companyLocation}</span>
-                    <span style="font-weight: bold;">·</span>
-                    <span>{job.data.companyBusiness}</span>
-                </div>
 
-                <div>
                     <span style="font-size: 1rem;">{job.data.title}</span>
-                    <span>{job.data.jobType}</span>
-                    <span style="font-weight: bold;">·</span>
-                    <span>{job.data.workType}</span>
-                    <span style="font-weight: bold;">·</span>
-                    <span>{job.data.totalWorkTime}</span>
                     <span>
                         ({job.data.startDate} ~ {job.data.endDate})
                     </span>
+                    <div class="tags">
+                        {job.data.tags.map((t) => (
+                            <span class="tag">{t}</span>
+                        ))}
+                    </div>
                 </div>
-
-                <div>
-                    {job.data.tags.map((t) => (
-                        <span class="tag">{t}</span>
-                    ))}
-                </div>
-            </div>
+            </a>
         ))
     }
 </Layout>
@@ -77,7 +65,7 @@ const allJobs = (await getCollection("work")).sort(
 
     a {
         color: white;
-        /* text-decoration: none; */
+        text-decoration: none;
     }
     p {
         margin-top: 0.5rem;
@@ -86,5 +74,10 @@ const allJobs = (await getCollection("work")).sort(
     }
     .job:is(:hover, :focus-within) {
         background-color: rgba(var(--bgcomponenthover));
+    }
+    @media screen and (max-width: 600px) {
+        .tags {
+            display: none;
+        }
     }
 </style>
