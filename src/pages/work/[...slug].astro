@@ -1,0 +1,36 @@
+---
+import Layout from "../../layouts/base.astro";
+import { CollectionEntry, getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+    const jobs = await getCollection("work");
+    return jobs.map((job) => ({
+        params: { slug: job.slug },
+        props: job,
+    }));
+}
+type Props = CollectionEntry<"work">;
+
+const post = Astro.props;
+const { Content } = await post.render();
+---
+
+<Layout
+    title={post.data.companyName}
+    description="selam"
+>
+    <img
+        src={post.data.companyImage}
+        alt={post.data.companyName}
+        style=""
+    />
+    <Content />
+</Layout>
+<style>
+    img {
+        max-width: 100%;
+        background-color: rgba(var(--bgcomponenthover));
+        margin: auto;
+        padding: 1rem;
+    }
+</style>
