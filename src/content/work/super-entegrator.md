@@ -14,6 +14,4 @@ tags: [".NET C#", "PostgreSQL", "Redis", "RabbitMQ", "MongoDB", "Azure DevOps", 
 order: 1
 ---
 
-# Super Entegrator
-
 Super Entegrator is a startup. I joined Super Entegrator in the early stage. There was no customer. We build the product from scratch. The business was invoicing, despatching, ledger management, and other small digital transformation products. We used .Net Core to build services, RabbitMq for communication between services, PostgreSQL to store data, Redis for caching, ElasticSearch for logging. There were also .Net Framework WCF services for communicating with TR Revenue Administration

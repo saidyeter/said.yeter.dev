@@ -11,26 +11,66 @@ export async function getStaticPaths() {
 }
 type Props = CollectionEntry<"work">;
 
-const post = Astro.props;
-const { Content } = await post.render();
+const job = Astro.props;
+const { Content } = await job.render();
 ---
 
 <Layout
-    title={post.data.companyName}
+    title={job.data.companyName}
     description="selam"
 >
     <img
-        src={post.data.companyImage}
-        alt={post.data.companyName}
+        src={job.data.companyImage}
+        alt={job.data.companyName}
         style=""
     />
+    <a href={job.data.companyLink}>
+        <span style="font-size: 1.5rem;font-weight: 600;">
+            {job.data.companyName}
+        </span></a
+    >
+    <div>
+        <span>{job.data.companyLocation}</span>
+        <span style="font-weight: bold;">·</span>
+        <span>{job.data.companyBusiness}</span>
+    </div>
+    <span style="font-size: 1.25rem;font-weight: 600;">{job.data.title}</span>
+
+    <div>
+        <span>{job.data.jobType}</span>
+        <span style="font-weight: bold;">·</span>
+        <span>{job.data.workType}</span>
+    </div>
+    <div>
+        <span>{job.data.totalWorkTime}</span>
+        <span>
+            ({job.data.startDate} ~ {job.data.endDate})
+        </span>
+    </div>
     <Content />
+
+    <div>
+        {job.data.tags.map((t) => <span class="tag">{t}</span>)}
+    </div>
 </Layout>
 <style>
     img {
-        max-width: 100%;
+        max-width: calc(100% - 2rem);
         background-color: rgba(var(--bgcomponenthover));
         margin: auto;
         padding: 1rem;
+    }
+    a {
+        color: white;
+    }
+    span {
+        font-size: 0.8rem;
+    }
+    span.tag {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        border-radius: 0.5rem;
+        width: fit-content;
+        background-color: rgba(var(--bgcomponenthover));
     }
 </style>

@@ -9,12 +9,10 @@ jobType: 'Full Time'
 workType: 'Remote'
 totalWorkTime: ''
 startDate: 'April 2022'
-endDate: ''
+endDate: 'Present'
 tags: [".NET C#","Node.js on AWS Lambda","PHP Phalcon Framework and Laravel","MySQL","Microsoft SQL Server","Redis","GitLab","Jira","Microservices","Web API","Agile Scrum","Docker","Kubernetes","Rancher Desktop"]
 order: 2
 ---
-
-# Zywave
 
 I worked on integrating newly acquired products to company user and customer management.  
 We used Jira for task management and GitLab for managing source code
