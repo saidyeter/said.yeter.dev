@@ -8,7 +8,6 @@ export interface Props {
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 const { title, description, image = "/placeholder-social.jpg" } = Astro.props;
-import { SITE_TITLE } from "../consts";
 const today = new Date();
 const { pathname } = Astro.url;
 const isActive = (href: string) =>
@@ -185,7 +184,14 @@ const isActive = (href: string) =>
             }
             body {
                 font-family: "trebuchet ms", system-ui, sans-serif;
-                background-color: rgb(var(--bgmain));
+                background-color: #17202e;
+                /* background-color: rgb(var(--bgmain)); */
+                /* background: rgb(0, 0, 0);
+                background: linear-gradient(
+                    180deg,
+                    rgba(0, 0, 0, 1) 0%,
+                    rgba(21, 22, 44, 1) 50%
+                ); */
                 margin: auto;
                 padding: 20px;
                 max-width: 65ch;
@@ -260,6 +266,13 @@ const isActive = (href: string) =>
                     target="_blank"
                 >
                     GitHub
+                </a>
+                <span style="font-weight: bold;">·</span>
+                <a
+                    href="https://www.linkedin.com/in/said-yeter/"
+                    target="_blank"
+                >
+                    LinkedIn
                 </a>
             </nav>
         </header>
