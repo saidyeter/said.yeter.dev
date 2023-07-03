@@ -35,3 +35,7 @@ Key features :
 - View PDF
 - Share file
 - Push notifications with notifee using Firebase cloud messaging
+
+Apps on 
+- [Apple AppStore](https://apps.apple.com/app/veriban-e-belge/id6443885586)
+- [Google Play Store](https://play.google.com/store/apps/details?id=com.veribanmobile)
