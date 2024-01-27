@@ -7,9 +7,9 @@ companyImage: "/work-zywave.webp"
 title: "Software Engineer"
 jobType: "Full Time"
 workType: "Remote"
-totalWorkTime: ""
+totalWorkTime: "1 Year 3 Months"
 startDate: "April 2022"
-endDate: "Present"
+endDate: "June 2023"
 tags:
   [
     ".NET C#",
