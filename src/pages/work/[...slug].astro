@@ -16,8 +16,8 @@ const { Content } = await job.render();
 ---
 
 <Layout
-    title={job.data.companyName}
-    description="selam"
+    title={`Said Yeter - ${job.data.companyName}`}
+    description={`Said Yeter - ${job.data.companyName} - Job Details`}
 >
     <img
         src={job.data.companyImage}
@@ -50,7 +50,7 @@ const { Content } = await job.render();
     <Content />
 
     <div>
-        {job.data.tags.map((t) => <span class="tag">{t}</span>)}
+        {job.data.tags.map((t:string) => <span class="tag">{t}</span>)}
     </div>
 </Layout>
 <style>
