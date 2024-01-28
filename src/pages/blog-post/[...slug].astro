@@ -1,0 +1,56 @@
+---
+import Layout from "../../layouts/base.astro";
+import { CollectionEntry, getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+    const jobs = await getCollection("blogPost");
+    return jobs.map((job) => ({
+        params: { slug: job.slug },
+        props: job,
+    }));
+}
+type Props = CollectionEntry<"blogPost">;
+
+const blogPost = Astro.props as Props;
+const { Content } = await blogPost.render();
+---
+
+<Layout
+    title={`Said Yeter - ${blogPost.data.title}`}
+    description={`Said Yeter - ${blogPost.data.title} - Blog Post`}
+>
+    <span style="font-size: 1.25rem;font-weight: 600;">
+        {blogPost.data.title}
+    </span>
+
+    <span>{blogPost.data.desc}</span>
+    <span>{blogPost.data.date}</span>
+    <Content />
+
+    <div>
+        {blogPost.data.tags.map((t: string) => <span class="tag">{t}</span>)}
+    </div>
+</Layout>
+<style>
+    img {
+        width: calc(100% - 2rem);
+        background-color: rgba(var(--bgcomponenthover));
+        /* margin: 1rem; */
+        padding: 1rem;
+        display: block;
+    }
+    a {
+        color: white;
+    }
+    span {
+        font-size: 0.8rem;
+        display: block
+    }
+    span.tag {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        border-radius: 0.5rem;
+        width: fit-content;
+        background-color: rgba(var(--bgcomponenthover));
+    }
+</style>
