@@ -2,30 +2,21 @@
 import Layout from "../../layouts/base.astro";
 import { getCollection } from "astro:content";
 
-const allJobs = (await getCollection("work")).sort(
+const allBlogPosts = (await getCollection("blogPost")).sort(
     (a, b) => b.data.order - a.data.order
 );
 ---
 
-<Layout
-    title="Said Yeter"
-    description="Said Yeter - My Work History"
->
+<Layout title="Said Yeter" description="Said Yeter - Blog Posts">
     {
-        allJobs.map((job) => (
-            <a href={"/work/" + job.slug}>
-                <div class="job-card">
-                    <span style="font-size: 1.5rem;">
-                        {job.data.companyName}
-                    </span>
-                    <span>{job.data.companyLocation}</span>
-
-                    <span style="font-size: 1rem;">{job.data.title}</span>
-                    <span>
-                        ({job.data.startDate} ~ {job.data.endDate})
-                    </span>
+        allBlogPosts.map((blogPost) => (
+            <a href={"/blog-post/" + blogPost.slug}>
+                <div class="blog-post-card">
+                    <span style="font-size: 1rem;">{blogPost.data.title}</span>
+                    <span>{blogPost.data.desc}</span>
+                    <span>{blogPost.data.date}</span>
                     <div class="tags">
-                        {job.data.tags.map((t) => (
+                        {blogPost.data.tags.map((t) => (
                             <span class="tag">{t}</span>
                         ))}
                     </div>
@@ -46,7 +37,7 @@ const allJobs = (await getCollection("work")).sort(
         width: fit-content;
         background-color: rgba(var(--bgcomponenthover));
     }
-    .job-card {
+    .blog-post-card {
         margin-bottom: 1rem;
         list-style: none;
         display: flex;
@@ -72,7 +63,7 @@ const allJobs = (await getCollection("work")).sort(
         margin-bottom: 0;
         color: white;
     }
-    .job-card:is(:hover, :focus-within) {
+    .blog-post-card:is(:hover, :focus-within) {
         background-color: rgba(var(--bgcomponenthover));
     }
     @media screen and (max-width: 600px) {
