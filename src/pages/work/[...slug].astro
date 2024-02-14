@@ -53,7 +53,7 @@ const { Content } = await job.render();
         {job.data.tags.map((t:string) => <span class="tag">{t}</span>)}
     </div>
 </Layout>
-<style>
+<style is:global>
     img {
         width: calc(100% - 2rem);
         background-color: rgba(var(--bgcomponenthover));
@@ -66,6 +66,7 @@ const { Content } = await job.render();
     }
     span {
         font-size: 0.8rem;
+        margin-right:.5rem;
     }
     span.tag {
         padding-left: 0.5rem;

@@ -31,11 +31,11 @@ const { Content } = await blogPost.render();
         {blogPost.data.tags.map((t: string) => <span class="tag">{t}</span>)}
     </div>
 </Layout>
-<style>
+<style is:global>
     img {
         width: calc(100% - 2rem);
-        background-color: rgba(var(--bgcomponenthover));
-        /* margin: 1rem; */
+        /* background-color: rgba(var(--bgcomponenthover));
+        margin: 1rem; */
         padding: 1rem;
         display: block;
     }
@@ -43,8 +43,8 @@ const { Content } = await blogPost.render();
         color: white;
     }
     span {
-        font-size: 0.8rem;
-        display: block
+        font-size: 0.8rem; 
+        margin-right:.5rem;
     }
     span.tag {
         padding-left: 0.5rem;
