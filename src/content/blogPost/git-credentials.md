@@ -26,6 +26,14 @@ Anyway, here is how I solved it:
 
 *Don't forget to copy the access token, because you won't be able to see it again.*
 
+
+---
+
+Edit : I forgot the most important part. You need to tell store credentials to git. To do that run this on terminal :  `git config --global credential.helper store` 
+
+---
+
+
 - I opened a terminal window and tried to clone a repo
 - This time, Instead of my username, I used the name of token that I created  *which is `my-pc` from this example*
 - And I used the token for password *which is `my-token` from this example*
