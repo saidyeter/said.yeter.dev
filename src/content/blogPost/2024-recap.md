@@ -1,6 +1,6 @@
 ---
 title: "2024 recap"
-desc: 'Configuring Git Credentials on new machine'
+desc: 'Overall recap of my life in 2024'
 date: '2025-03-06 00:44'
 tags:
   [
@@ -53,15 +53,15 @@ Speaking of keyboards. I’m deep into this niche hobby. I’ve been using mecha
 
 ![My 3rd handmade keyboard](/assets/2024-recap/3rd-kb.jpg)
 
-In December 2024, I started another mobile app with the same friend. This time, I used openapi-fetch instead of Zod, which made working with APIs much easier. Also, we fixed the notification issue by fetching notifications from an endpoint instead of storing them locally. The project is still ongoing, so if I do a 2025 recap, I’ll mention it.
+In December 2024, I started another mobile app with the same friend. This time, I used openapi-fetch instead of Zod, which made working with APIs much easier. It allows me to convert swagger json into the typescript file, it is a lot easier to work with. I don’t need to change anything manually when backend changes. I just regenerate the typescript file again. Also, we fixed the notification issue by fetching notifications from an endpoint instead of storing them locally. The project is still ongoing, so if I do a 2025 recap, I’ll mention it.
 
-In my daily work, my primary focus has been migrating from IIS to Kubernetes. Most of my work revolved around writing Dockerfiles and GitLab CI/CD YAML files to support this transition.
+In my daily work, my primary focus has been migrating from IIS to Kubernetes. Most of my work revolved around writing Dockerfiles and GitLab CI/CD YAML files.
 
-One major challenge we faced was managing internal NuGet packages. Previously, these packages were stored in a Git repository, requiring developers to clone the entire repository just to access a few packages. This approach was inefficient, especially for CI/CD pipelines, as it forced downloads of hundreds of packages unnecessarily. To address this, we introduced Nexus as our internal NuGet store. I worked on automating pipelines to upload packages to Nexus whenever changes were made.
+One major challenge we faced was managing internal NuGet packages. Previously, these packages were stored in a Git repository, requiring developers to clone the entire repository to access all those packages. This approach was inefficient for CI/CD pipelines, as it forced downloads of hundreds of packages unnecessarily. To address this, we introduced Nexus as our internal NuGet store. I worked on automating pipelines to upload packages to Nexus whenever changes were made.
 
 Another key improvement involved handling sensitive configuration data. In our IIS setup, credentials were stored in a JSON file, which wasn’t suitable for a reproducible pipeline since we couldn’t store sensitive data in the repository. To resolve this, we adopted HashiCorp Vault for securely managing credentials. My task involved extracting sensitive data from JSON files and storing it in Vault for the development and UAT environments. This migration is still in progress, and we aim to complete it by the end of the year.
 
-One last thing for this blog post is, my company launched an Internal Growth program, and I enrolled in courses on AWS Lambda, Linux Administration, and frontend development. Having worked with AWS Lambda in my previous job, I wanted to deepen my knowledge, so I took another AWS course that goes beyond Lambda functions. The Linux course helped reinforce key concepts, as I’ve been using Linux for a while.
+One last thing for this blog post is, my company launched an Internal Growth program, and I enrolled in courses on AWS Lambda, Linux Administration, and frontend development. Having worked with AWS Lambda in my previous job for a couple of months, I wanted to deepen my knowledge, so I took a AWS course that goes beyond Lambda functions. The Linux course helped reinforce key concepts, as I’ve been using Linux for a while.
 
 Overall, this program has been a great opportunity to expand my skills, and I plan to work on more projects this year to solidify my learning.
 
