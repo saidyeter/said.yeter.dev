@@ -4,7 +4,7 @@ companyLink: "https://www.bkt.com.al/"
 companyLocation: "Albania Tirana"
 companyBusiness: "Banking"
 companyImage: "/work-bkt.svg"
-title: "Software Engineer"
+title: "Full Stack Software Engineer"
 jobType: "Full Time"
 workType: "Remote"
 totalWorkTime: ""
@@ -23,7 +23,7 @@ tags:
     "Rancher",
     "ArgoCD",
   ]
-order: 8
+order: 10
 ---
 
 I'm working on BKT <sub>(as an outsource from [OBSS](https://obss.tech/en/))</sub> migrating old version .Net projects to new version and trying to fix some CI/CD issues in order to make them working in Kubernetes environment. Even so, sometimes I work on developing new features on some projects. 

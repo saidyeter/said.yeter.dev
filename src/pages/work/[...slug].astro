@@ -1,13 +1,13 @@
 ---
-import Layout from "../../layouts/base.astro";
 import { CollectionEntry, getCollection } from "astro:content";
+import Layout from "../../layouts/base.astro";
 
 export async function getStaticPaths() {
-    const jobs = await getCollection("work");
-    return jobs.map((job) => ({
-        params: { slug: job.slug },
-        props: job,
-    }));
+  const jobs = await getCollection("work");
+  return jobs.map((job) => ({
+    params: { slug: job.slug },
+    props: job,
+  }));
 }
 type Props = CollectionEntry<"work">;
 
@@ -16,63 +16,57 @@ const { Content } = await job.render();
 ---
 
 <Layout
-    title={`Said Yeter - ${job.data.companyName}`}
-    description={`Said Yeter - ${job.data.companyName} - Job Details`}
+  title={`Said Yeter - ${job.data.companyName}`}
+  description={`Said Yeter - ${job.data.companyName} - Job Details`}
 >
-    <img
-        src={job.data.companyImage}
-        alt={job.data.companyName}
-        style=""
-    />
-    <a href={job.data.companyLink}>
-        <span style="font-size: 1.5rem;font-weight: 600;">
-            {job.data.companyName}
-        </span></a
-    >
-    <div>
-        <span>{job.data.companyLocation}</span>
-        <span style="font-weight: bold;">·</span>
-        <span>{job.data.companyBusiness}</span>
-    </div>
-    <span style="font-size: 1.25rem;font-weight: 600;">{job.data.title}</span>
+  <img src={job.data.companyImage} alt={job.data.companyName} style="" />
+  <a href={job.data.companyLink}>
+    <span style="font-size: 1.5rem;font-weight: 600;">
+      {job.data.companyName}
+    </span>
+  </a>
+  <div>
+    <span>{job.data.companyLocation}</span>
+    <span style="font-weight: bold;">·</span>
+    <span>{job.data.companyBusiness}</span>
+  </div>
+  <span style="font-size: 1.25rem;font-weight: 600;">{job.data.title}</span>
 
-    <div>
-        <span>{job.data.jobType}</span>
-        <span style="font-weight: bold;">·</span>
-        <span>{job.data.workType}</span>
-    </div>
-    <div>
-        <span>{job.data.totalWorkTime}</span>
-        <span>
-            ({job.data.startDate} ~ {job.data.endDate})
-        </span>
-    </div>
-    <Content />
+  <div>
+    <span>{job.data.jobType}</span>
+    <span style="font-weight: bold;">·</span>
+    <span>{job.data.workType}</span>
+  </div>
+  <div>
+    {job.data.totalWorkTime && <span>{job.data.totalWorkTime}</span>}
+    <span> {job.data.startDate} ~ {job.data.endDate} </span>
+  </div>
+  <Content />
 
-    <div>
-        {job.data.tags.map((t:string) => <span class="tag">{t}</span>)}
-    </div>
+  <div>
+    {job.data.tags.map((t: string) => <span class="tag">{t}</span>)}
+  </div>
 </Layout>
 <style is:global>
-    img {
-        width: calc(100% - 2rem);
-        background-color: rgba(var(--bgcomponenthover));
-        /* margin: 1rem; */
-        padding: 1rem;
-        display: block;
-    }
-    a {
-        color: white;
-    }
-    span {
-        font-size: 0.8rem;
-        margin-right:.5rem;
-    }
-    span.tag {
-        padding-left: 0.5rem;
-        padding-right: 0.5rem;
-        border-radius: 0.5rem;
-        width: fit-content;
-        background-color: rgba(var(--bgcomponenthover));
-    }
+  img {
+    width: calc(100% - 2rem);
+    background-color: rgba(var(--bgcomponenthover));
+    /* margin: 1rem; */
+    padding: 1rem;
+    display: block;
+  }
+  a {
+    color: white;
+  }
+  span {
+    font-size: 0.8rem;
+    margin-right: 0.5rem;
+  }
+  span.tag {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    border-radius: 0.5rem;
+    width: fit-content;
+    background-color: rgba(var(--bgcomponenthover));
+  }
 </style>

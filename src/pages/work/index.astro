@@ -1,83 +1,83 @@
 ---
-import Layout from "../../layouts/base.astro";
 import { getCollection } from "astro:content";
+import Layout from "../../layouts/base.astro";
 
 const allJobs = (await getCollection("work")).sort(
-    (a, b) => b.data.order - a.data.order
+  (a, b) => b.data.order - a.data.order,
 );
 ---
 
-<Layout
-    title="Said Yeter"
-    description="Said Yeter - My Work History"
->
-    {
-        allJobs.map((job) => (
-            <a href={"/work/" + job.slug}>
-                <div class="job-card">
-                    <span style="font-size: 1.5rem;">
-                        {job.data.companyName}
-                    </span>
-                    <span>{job.data.companyLocation}</span>
-
-                    <span style="font-size: 1rem;">{job.data.title}</span>
-                    <span>
-                        ({job.data.startDate} ~ {job.data.endDate})
-                    </span>
-                    <div class="tags">
-                        {job.data.tags.map((t) => (
-                            <span class="tag">{t}</span>
-                        ))}
-                    </div>
-                </div>
-            </a>
-        ))
-    }
+<Layout title="Said Yeter" description="Said Yeter - My Work History">
+  {
+    allJobs.map((job) => (
+      <a href={"/work/" + job.slug}>
+        <div class="job-card">
+          <div>
+            <span style="font-size: 1.5rem;">{job.data.companyName}</span>
+            <span>· {job.data.companyLocation}</span>
+            <span>
+              ({job.data.startDate} ~ {job.data.endDate})
+            </span>
+          </div>
+          <div>
+            <span style="font-size: 1rem;">{job.data.title}</span>
+            <span>· {job.data.jobType}</span>
+            <span>· {job.data.workType}</span>
+          </div>
+          <div class="tags">
+            {job.data.tags.map((t) => (
+              <span class="tag">{t}</span>
+            ))}
+          </div>
+        </div>
+      </a>
+    ))
+  }
 </Layout>
 
 <style>
-    span {
-        font-size: 0.7rem;
-    }
-    span.tag {
-        padding-left: 0.5rem;
-        padding-right: 0.5rem;
-        border-radius: 0.5rem;
-        width: fit-content;
-        background-color: rgba(var(--bgcomponenthover));
-    }
-    .job-card {
-        margin-bottom: 1rem;
-        list-style: none;
-        display: flex;
-        flex-direction: column;
-        padding: 1rem;
-        color: white;
+  span {
+    font-size: 0.7rem;
+  }
+  span.tag {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    border-radius: 0.5rem;
+    width: fit-content;
+    background-color: rgba(var(--bgcomponenthover));
+  }
+  .job-card {
+    margin-bottom: 1rem;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    color: white;
 
-        background-color: rgba(var(--bgcomponent));
-        /* background-color: rgba(255, 255, 255, 0.1); */
-        background-image: none;
-        background-size: 400%;
-        border-radius: 0.6rem;
-        background-position: 100%;
-        transition: background-position 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-    }
+    background-color: rgba(var(--bgcomponent));
+    /* background-color: rgba(255, 255, 255, 0.1); */
+    background-image: none;
+    background-size: 400%;
+    border-radius: 0.6rem;
+    background-position: 100%;
+    transition: background-position 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
 
-    a {
-        color: white;
-        text-decoration: none;
+  a {
+    color: white;
+    text-decoration: none;
+  }
+  p {
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+    color: white;
+  }
+  .job-card:is(:hover, :focus-within) {
+    background-color: rgba(var(--bgcomponenthover));
+  }
+  @media screen and (max-width: 600px) {
+    .tags {
+      display: none;
     }
-    p {
-        margin-top: 0.5rem;
-        margin-bottom: 0;
-        color: white;
-    }
-    .job-card:is(:hover, :focus-within) {
-        background-color: rgba(var(--bgcomponenthover));
-    }
-    @media screen and (max-width: 600px) {
-        .tags {
-            display: none;
-        }
-    }
+  }
 </style>
